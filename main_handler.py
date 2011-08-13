@@ -12,7 +12,7 @@ import settings
 decorator = OAuth2Decorator(client_id=settings.CLIENT_ID,
                             client_secret=settings.CLIENT_SECRET,
                             scope=settings.SCOPE,
-                            user_agent='mytasks')
+                            user_agent='karya')
 
 
 class MainHandler(webapp.RequestHandler):

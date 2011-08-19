@@ -53,10 +53,12 @@
       {% if url %}
          Please authorize before you can use the app: {{ url }}
       {% endif %}
+      <div id="tasks-form">
       <form data-bind="submit: addTask">
-          Add task: <input data-bind="value: newTaskText" placeholder="What needs to be done?" />
+          <input data-bind="value: newTaskText" placeholder="What needs to be done?" />
           <button type="submit">Add</button>
       </form>
+      </div>
 
       <ul data-bind="template: { name: 'taskTemplate', foreach: tasks }, visible: tasks().length > 0"></ul>
     </div>

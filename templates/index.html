@@ -33,10 +33,18 @@
        Modernizr enables HTML5 elements & feature detects; Respond is a polyfill for min/max-width CSS3 Media Queries
        For optimal performance, use a custom Modernizr build: www.modernizr.com/download/ -->
   <script src="/static/js/libs/modernizr-2.0.6.min.js"></script>
+  <script type="text/html" id="taskTemplate">
+      <li>
+          <input type="checkbox" data-bind="checked: isDone()" />
+          <input data-bind="value: title, enable: !isDone()" />
+          <a href="#" data-bind="click: remove">Delete</a>
+      </li>
+  </script>
+
 </head>
 
 <body>
-
+    
   <div id="container">
     <header>
 
@@ -45,11 +53,12 @@
       {% if url %}
          Please authorize before you can use the app: {{ url }}
       {% endif %}
-      <ul id="sortable">
-			{% for task in tasks %}
-        <li class="{{ task.status }}"> {{ task.title }} </li>
-      {% endfor %}
-      </ul>
+      <form data-bind="submit: addTask">
+          Add task: <input data-bind="value: newTaskText" placeholder="What needs to be done?" />
+          <button type="submit">Add</button>
+      </form>
+
+      <ul data-bind="template: { name: 'taskTemplate', foreach: tasks }, visible: tasks().length > 0"></ul>
     </div>
     <footer>
 
@@ -63,7 +72,8 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
   <script src=" https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.15/jquery-ui.min.js"></script>
   <script>window.jQuery || document.write('<script src="/static/js/libs/jquery-1.6.2.min.js"><\/script>')</script>
-
+  <script src="https://raw.github.com/jquery/jquery-tmpl/master/jquery.tmpl.min.js"></script>
+  <script src="/static/js/mylibs/knockout-1.2.1.min.js"></script>
 
   <!-- scripts concatenated and minified via ant build script-->
   <script defer src="/static/js/plugins.js"></script>

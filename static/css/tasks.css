@@ -1,6 +1,23 @@
+#container{
+    margin: 0em 10em 2em 10em;
+}
+#header{
+    padding-bottom: 1em;
+}
+#banner-text{
+    font: 1.7em Tahoma, Helvetica, Arial, Sans-Serif;
+    text-align: center;
+    text-shadow: 0px 2px 3px #555;
+}
 #tasks-form
 {
-    background-color: red;
+    margin-left: 10em;
+    margin-right: 10em;
+    padding: 2em 13em;
+    background-color: #e3e3e3;
+    -moz-border-radius: 2px;
+    border-radius: 3px;
+    border-style: 
 }
 
 .completed{

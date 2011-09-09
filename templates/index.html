@@ -35,11 +35,11 @@
        For optimal performance, use a custom Modernizr build: www.modernizr.com/download/ -->
   <script src="/static/js/libs/modernizr-2.0.6.min.js"></script>
   <script type="text/html" id="taskTemplate">
-      <li>
-          <input type="checkbox" data-bind="checked: isDone()" />
-          <input data-bind="value: title, enable: !isDone()" />
-          <a href="#" data-bind="click: remove">Delete</a>
-      </li>
+    <li>
+        <input type="checkbox" data-bind="checked: isDone()" class="done" />
+        <input data-bind="value: title, enable: !isDone()" class="taskText" />
+        <a href="#" data-bind="click: remove" class="removeTask">x</a>
+    </li>
   </script>
 
 </head>
@@ -51,18 +51,21 @@
       {% if url %}
          Please authorize before you can use the app: {{ url }}
       {% endif %}
-      <div id="tasks-form">
-      <form data-bind="submit: addTask">
-          <input data-bind="value: newTaskText" placeholder="What needs to be done?" />
-          <button type="submit">Add</button>
-      </form>
-      </div>
+      <div class="taskList">
+        <div id="tasks-form">
+          <form data-bind="submit: addTask">
+            <input data-bind="value: newTaskText" placeholder="What needs to be done?"/>
+            <button type="submit">Add</button>
+          </form>
+        </div>
 
-      <ul data-bind="template: { name: 'taskTemplate', foreach: tasks }, visible: tasks().length > 0"></ul>
+        <ul data-bind="template: { name: 'taskTemplate', foreach: tasks }, visible: tasks().length > 0"
+            class="tasks"></ul>
+      </div>
     </div>
     <footer>
-	        <h2 class="karyaLogo">karya</h2>
-					<span id="googleCredit">powered by Google Tasks</span>
+      <h2 class="karyaLogo">karya</h2>
+      <span id="googleCredit">powered by Google Tasks</span>
     </footer>
   </div> <!--! end of #container -->
 

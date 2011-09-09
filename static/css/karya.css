@@ -1,1 +1,82 @@
+/* */
 /**/
+html {
+  background: #fffaf5;
+}
+input {
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px 2px 2px 2px;
+  -moz-border-radius: 3px 2px 2px 2px;
+  -webkit-border-radius: 3px 2px 2px 2px;
+  -webkit-transition: all 200ms ease;
+  -moz-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
+  transition: all 200ms ease;
+  border: 1px solid transparent;
+  padding: 5px 10px;
+  background: transparent;
+}
+input:hover, input:focus {
+  -webkit-transition: all 100ms ease;
+  -moz-transition: all 100ms ease;
+  -o-transition: all 100ms ease;
+  transition: all 100ms ease;
+  -moz-box-shadow: inset 0 0px 8px #dddddd;
+  -webkit-box-shadow: inset 0 0px 8px #dddddd;
+  box-shadow: inset 0 0px 8px #dddddd;
+  background: #fff;
+  border: 1px solid #eee;
+  outline: none;
+}
+input:focus {
+  border: 1px solid #ccc;
+  -moz-box-shadow: inset 0 0px 8px #cccccc;
+  -webkit-box-shadow: inset 0 0px 8px #cccccc;
+  box-shadow: inset 0 0px 8px #cccccc;
+}
+.taskList #tasks-form {
+  width: 50%;
+  margin: 0 auto;
+  padding: 10px;
+}
+.taskList #tasks-form input {
+  width: 85%;
+  font-size: 21px;
+  line-height: 23px;
+}
+.taskList .tasks {
+  width: 50%;
+  margin: 0 auto;
+}
+.taskList .tasks li {
+  position: relative;
+  margin: 5px 0;
+}
+.taskList .tasks input.taskText {
+  width: 90%;
+  padding-right: 40px;
+  padding-left: 30px;
+}
+.taskList .tasks input.taskText.done {
+  text-decoration: line-through;
+  color: #777;
+}
+.taskList .tasks input.done, .taskList .tasks a.removeTask {
+  position: absolute;
+}
+.taskList .tasks input.done {
+  top: 8px;
+  left: 8px;
+}
+.taskList .tasks a.removeTask {
+  top: 5px;
+  right: 15px;
+  color: #ccc;
+  text-decoration: none;
+}
+.taskList .tasks a.removeTask:hover {
+  color: #777;
+  text-decoration: none;
+}

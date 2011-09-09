@@ -1,1 +1,73 @@
+@import "util.less";
+
 /**/
+
+html{
+  background:#fffaf5;
+}
+
+input{
+  .round-corner(3px);
+  .transition(all,200ms,ease);
+  border:1px solid transparent;
+  padding:5px 10px;
+  background:transparent;
+  &:hover,&:focus{
+    .transition(all,100ms,ease);
+    .inset-shadow(inset,0,0px,8px,#ddd);
+    background:#fff;
+    border:1px solid #eee;
+    outline:none;
+  }
+  &:focus{
+    border:1px solid #ccc;
+    .inset-shadow(inset,0,0px,8px,#ccc);
+  }
+}
+
+
+.taskList{
+  #tasks-form{
+    width:50%;
+    margin:0 auto;
+    padding:10px;
+    input{
+      width:85%;
+      .sizeH2();
+    }
+  }
+  .tasks{
+    width:50%;
+    margin:0 auto;
+    li{
+      position:relative; 
+      margin:5px 0; 
+    }
+    input.taskText{
+      width:90%;
+      padding-right:40px;
+      padding-left:30px;
+      &.done{
+        text-decoration:line-through;
+        color:#777;
+      }
+    }
+    input.done,a.removeTask{
+      position:absolute;
+    }
+    input.done{
+      top:8px;
+      left:8px;
+    }
+    a.removeTask{
+      top:5px;
+      right:15px;
+      color:#ccc;
+      text-decoration:none;
+      &:hover{
+        color:#777;
+        text-decoration:none;
+      }
+    }
+  }
+}

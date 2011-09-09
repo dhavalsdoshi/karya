@@ -50,19 +50,8 @@ html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
 }
-body {
-  margin: 0;
-  font-size: 13px;
-  line-height: 1.231;
-}
-body,
-button,
-input,
-select,
-textarea {
-  font-family: sans-serif;
-  color: #222;
-}
+/*body { margin: 0; font-size: 13px; line-height: 1.231; }*/
+/*body, button, input, select, textarea { font-family: sans-serif; color: #222; }*/
 /* 
  * Remove text-shadow in selection highlight: h5bp.com/i
  * These selection declarations have to be separate
@@ -202,10 +191,7 @@ body {
 /* =============================================================================
    Lists
    ========================================================================== */
-ul, ol {
-  margin: 1em 0;
-  padding: 0 0 0 40px;
-}
+/*ul, ol { margin: 1em 0; padding: 0 0 0 40px; }*/
 dd {
   margin: 0 0 0 40px;
 }

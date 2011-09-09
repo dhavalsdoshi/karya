@@ -1,7 +1,5 @@
 @import "util.less";
 
-/**/
-
 html{
   background:#fffaf5;
 }
@@ -20,8 +18,8 @@ input{
     outline:none;
   }
   &:focus{
-    border:1px solid #ccc;
     .inset-shadow(inset,0,0px,8px,#ccc);
+    border:1px solid #ccc;
   }
 }
 
@@ -32,8 +30,8 @@ input{
     margin:0 auto;
     padding:10px;
     input{
-      width:85%;
       .sizeH2();
+      width:85%;
     }
   }
   .tasks{

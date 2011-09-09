@@ -17,7 +17,7 @@ $(function() {
     this.addTask = function() {
       this.tasks.push(new task(this.newTaskText(), false, this));
       this.newTaskText("");
-    }
+    };
     this.incompleteTasks = ko.dependentObservable(function() {
       return ko.utils.arrayFilter(this.tasks(), function(task) { return !task.isDone(); });
     }, this);

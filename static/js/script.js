@@ -1,9 +1,9 @@
 var test;
 $(function() {
-	// $( "#sortable" ).sortable({
-	//         revert: true
-	//     });
-	//     $( "ul, li" ).disableSelection();
+	$( "#sortable" ).sortable({
+	        revert: true
+	    });
+	    $( "ul, li" ).disableSelection();
 	
 	function task(title, isDone, ownerViewModel) {
         this.title = ko.observable(title);

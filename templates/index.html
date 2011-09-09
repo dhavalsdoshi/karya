@@ -23,8 +23,9 @@
 
   <!-- CSS: implied media=all -->
   <!-- CSS concatenated and minified via ant build script-->
-  <link rel="stylesheet" href="/static/css/style.css">
-  <link rel="stylesheet" href="/static/css/tasks.css">
+  <link rel="stylesheet" href="/static/css/reset.css">
+	<link rel="stylesheet" href="/static/css/base.css">
+  <link rel="stylesheet" href="/static/css/karya.css">
   <!-- end CSS-->
 
   <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
@@ -46,9 +47,6 @@
 <body>
     
   <div id="container">
-    <header id="header">
-        <span id="banner-text">Google Tasks</span>
-    </header>
     <div id="main" role="main">
       {% if url %}
          Please authorize before you can use the app: {{ url }}
@@ -63,7 +61,8 @@
       <ul data-bind="template: { name: 'taskTemplate', foreach: tasks }, visible: tasks().length > 0"></ul>
     </div>
     <footer>
-
+	        <h2 class="karyaLogo">karya</h2>
+					<span id="googleCredit">powered by Google Tasks</span>
     </footer>
   </div> <!--! end of #container -->
 

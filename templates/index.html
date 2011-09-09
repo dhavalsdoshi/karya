@@ -39,7 +39,7 @@
   <script src="/static/js/libs/modernizr-2.0.6.min.js"></script>
   <script type="text/html" id="taskTemplate">
     <li>
-        <input type="checkbox" data-bind="checked: isDone()" class="done" />
+        <input type="checkbox" data-bind="checked: isDone()" class="check" />
         <input data-bind="value: title, enable: !isDone()" class="taskText" />
         <a href="#" data-bind="click: remove" class="removeTask">x</a>
     </li>

@@ -35,8 +35,6 @@ input:focus {
   box-shadow: inset 0 0px 8px #cccccc;
   border: 1px solid #ccc;
 }
-/*font-family: 'Walter Turncoat', cursive;*/
-/*font-family: 'Schoolbell', cursive;*/
 .taskList #tasks-form {
   width: 50%;
   margin: 0 auto;
@@ -66,10 +64,10 @@ input:focus {
   text-decoration: line-through;
   color: #777;
 }
-.taskList .tasks input.done, .taskList .tasks a.removeTask {
+.taskList .tasks input.check, .taskList .tasks a.removeTask {
   position: absolute;
 }
-.taskList .tasks input.done {
+.taskList .tasks input.check {
   top: 8px;
   left: 8px;
 }
@@ -82,4 +80,7 @@ input:focus {
 .taskList .tasks a.removeTask:hover {
   color: #777;
   text-decoration: none;
+}
+footer {
+  text-align: center;
 }

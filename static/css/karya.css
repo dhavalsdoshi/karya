@@ -39,7 +39,16 @@ input:focus {
   width: 50%;
   margin: 0 auto;
   padding: 10px;
+
 }
+
+h2.taskListTitle{
+  font-family: 'Walter Turncoat', cursive;
+  font-size: 25px;
+  line-height: 27px;
+  text-align: center;
+}
+
 .taskList #tasks-form input {
   font-family: 'Walter Turncoat', cursive;
   font-size: 21px;

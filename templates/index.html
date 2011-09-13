@@ -45,6 +45,16 @@
     </li>
   </script>
 
+    <script type="text/html" id="taskListTemplate">
+      <div class="taskList">
+        <a href="#" data-bind="click: remove" class="removeTaskList">x</a>
+        <h2 data-bind="text: title" class="taskListTitle"></h2>
+        <ul data-bind="template: { name: 'taskTemplate', foreach: tasks }, visible: tasks().length > 0"
+            class="tasks">
+        </ul>
+      </div>
+    </script>
+
 </head>
 
 <body>
@@ -54,16 +64,7 @@
       {% if url %}
          Please authorize before you can use the app: {{ url }}
       {% endif %}
-      <div class="taskList">
-        <div id="tasks-form">
-          <form data-bind="submit: addTask">
-            <input data-bind="value: newTaskText" placeholder="What needs to be done?"/>
-            <button type="submit">Add</button>
-          </form>
-        </div>
-
-        <ul data-bind="template: { name: 'taskTemplate', foreach: tasks }, visible: tasks().length > 0"
-            class="tasks"></ul>
+      <div class="taskLists" data-bind="template: {name: 'taskListTemplate', foreach: taskLists}, visible: taskLists().length > 0">
       </div>
     </div>
     <footer>

@@ -47,8 +47,10 @@
 
     <script type="text/html" id="taskListTemplate">
       <div class="taskList">
-        <a href="#" data-bind="click: remove" class="removeTaskList">x</a>
-        <h2 data-bind="text: title" class="taskListTitle"></h2>
+        <div class="taskListHeader">
+					<h2 data-bind="text: title" class="taskListTitle"></h2>
+					<a href="#" data-bind="click: remove" class="removeTaskList">x</a>
+				</div>
         <ul data-bind="template: { name: 'taskTemplate', foreach: tasks }, visible: tasks().length > 0"
             class="tasks">
         </ul>

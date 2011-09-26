@@ -1,9 +1,9 @@
 var test;
 $(function() {
-	$( "#sortable" ).sortable({
-    revert: true
-  });
-  $("ul, li").disableSelection();
+    $("#sortable").sortable({
+        revert: true
+    });
+    $("ul, li").disableSelection();
 
     function Task(title, isDone, ownerViewModel) {
         this.title = ko.observable(title);
@@ -24,10 +24,10 @@ $(function() {
             taskLists.remove(this);
         };
         var self = this;
-        this.add = function(title, isDone){
+        this.add = function(title, isDone) {
             self.tasks.push(new Task(title, isDone, self))
         };
-        this.removeTask = function(task){
+        this.removeTask = function(task) {
             self.tasks.remove(task);
         }
     }
@@ -49,19 +49,6 @@ $(function() {
 
     ko.applyBindings(new TaskListsViewModel());
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //$(function() {

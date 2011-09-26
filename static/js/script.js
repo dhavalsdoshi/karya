@@ -4,42 +4,50 @@ $(function() {
     revert: true
   });
   $("ul, li").disableSelection();
-	
-	function Task(title, isDone, ownerViewModel) {
-    this.title = ko.observable(title);
-    this.isDone = ko.observable(isDone);
-    this.remove = function() {
-      jQuery.each(ownerViewModel.taskLists(),function(index, taskList){
-        taskList.tasks.remove(this);
-      });
-    };
-  }
 
-  function TaskList(title, id, tasks, ownerViewModel) {
-    this.title = ko.observable(title);
-    this.id = id;
-    this.tasks = ko.observableArray(tasks);
-    this.remove = function() {
-      var taskLists = ownerViewModel.taskLists;
-      taskLists.remove(this);
-    };
-  }
+    function Task(title, isDone, ownerViewModel) {
+        this.title = ko.observable(title);
+        this.isDone = ko.observable(isDone);
+        this.ownerViewModel = ownerViewModel;
+        this.remove = function() {
+            console.log("Deleted task");
+            ownerViewModel.removeTask(this);
+        };
+    }
 
-  function TaskListsViewModel(){
-    this.taskLists = ko.observableArray([]);
-    var self = this;
-    $.getJSON('/taskLists', function(data){
-      $.map(data, function(taskList){
-        var myTasks = [];
-        $.map(taskList.tasks, function(task){
-          myTasks.push(new Task(task.title, task.isDone, self));
+    function TaskList(title, id, ownerViewModel) {
+        this.title = ko.observable(title);
+        this.id = id;
+        this.tasks = ko.observableArray([]);
+        this.remove = function() {
+            var taskLists = ownerViewModel.taskLists;
+            taskLists.remove(this);
+        };
+        var self = this;
+        this.add = function(title, isDone){
+            self.tasks.push(new Task(title, isDone, self))
+        };
+        this.removeTask = function(task){
+            self.tasks.remove(task);
+        }
+    }
+
+    function TaskListsViewModel() {
+        this.taskLists = ko.observableArray([]);
+        var self = this;
+
+        $.getJSON('/taskLists', function(data) {
+            $.map(data, function(taskList) {
+                var tempTaskList = new TaskList(taskList.title, taskList.id, self);
+                $.map(taskList.tasks, function(task) {
+                    tempTaskList.add(task.title, task.isDone);
+                });
+                self.taskLists.push(tempTaskList);
+            })
         });
-        self.taskLists.push(new TaskList(taskList.title, taskList.id, myTasks, self));
-      })
-    });
-  }
+    }
 
-  ko.applyBindings(new TaskListsViewModel());
+    ko.applyBindings(new TaskListsViewModel());
 });
 
 

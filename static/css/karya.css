@@ -1,6 +1,6 @@
 /* */
 html {
-  background: #fffaf5;
+  background: #fff;
 }
 input {
   border-radius: 3px;
@@ -38,13 +38,27 @@ input:focus {
 .taskLists {
   overflow: hidden;
 }
-.taskLists .taskListTitle {
-  overflow: hidden;
-}
 .taskList {
   float: left;
   width: 33%;
   margin: 10px;
+  padding: 5px;
+  border: 1px dashed #eee;
+}
+.taskList:hover {
+  -moz-box-shadow: 0 5px 15px #dddddd;
+  -webkit-box-shadow: 0 5px 15px #dddddd;
+  box-shadow: 0 5px 15px #dddddd;
+  /*	filter:e(%("progid:DXImageTransform.Microsoft.Shadow(color= %s, Direction=%s, Strength=%s)", @color, @offset, @blur))*/
+
+  -moz-box-shadow: 0;
+  -webkit-box-shadow: 0;
+  box-shadow: 0;
+}
+.taskList li {
+  font-family: 'Walter Turncoat', cursive;
+  font-size: 21px;
+  line-height: 23px;
 }
 .taskList #tasks-form {
   width: 50%;
@@ -52,14 +66,40 @@ input:focus {
   padding: 10px;
 }
 .taskList #tasks-form input {
-  font-family: 'Walter Turncoat', cursive;
-  font-size: 21px;
-  line-height: 23px;
   width: 85%;
 }
+.taskList .taskListHeader {
+  overflow: hidden;
+}
+.taskList .taskListHeader .taskListTitle, .taskList .taskListHeader .removeTaskList {
+  float: left;
+}
+.taskList .taskListHeader a.removeTaskList {
+  width: 5%;
+  font-family: 'Walter Turncoat', cursive;
+  position: relative;
+  font-size: 1.1em;
+  top: 2px;
+  right: 25px;
+  color: transparent;
+  font-size: 21px;
+  line-height: 23px;
+}
+.taskList .taskListHeader a.removeTaskList:hover {
+  color: #777;
+  text-decoration: none;
+}
+.taskList .taskListHeader .taskListTitle {
+  width: 95%;
+  text-align: center;
+}
+.taskList .taskListHeader .taskListTitle:hover + a.removeTaskList {
+  color: #eee;
+  text-decoration: none;
+}
 .taskList .tasks {
-  width: 50%;
   margin: 0 auto;
+  width: 90%;
 }
 .taskList .tasks li {
   position: relative;
@@ -67,7 +107,7 @@ input:focus {
 }
 .taskList .tasks input.taskText {
   font-family: 'Schoolbell', cursive;
-  width: 90%;
+  width: 70%;
   padding-right: 40px;
   padding-left: 30px;
 }
@@ -75,18 +115,31 @@ input:focus {
   text-decoration: line-through;
   color: #777;
 }
-.taskList .tasks input.check, .taskList .tasks a.removeTask {
-  position: absolute;
+.taskList .tasks input.taskText:hover + a.removeTask {
+  color: #eee;
+  text-decoration: none;
 }
 .taskList .tasks input.check {
-  top: 8px;
-  left: 8px;
+  position: absolute;
+  opacity: 0.3;
+}
+.taskList .tasks input.check:hover, .taskList .tasks input.check:checked {
+  opacity: 1;
+}
+.taskList .tasks input.check:checked + input.taskText {
+  text-decoration: line-through;
+  color: #777;
+}
+.taskList .tasks input.check {
+  top: 15px;
+  left: 10px;
 }
 .taskList .tasks a.removeTask {
-  top: 5px;
-  right: 15px;
-  color: #ccc;
-  text-decoration: none;
+  position: relative;
+  font-size: 1.1em;
+  top: 2px;
+  right: 25px;
+  color: transparent;
 }
 .taskList .tasks a.removeTask:hover {
   color: #777;

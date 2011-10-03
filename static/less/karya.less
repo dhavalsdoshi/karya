@@ -1,7 +1,19 @@
 @import "util.less";
 
+.removeLink(){
+	position:relative;
+	font-size:1.1em;
+	top:2px;
+  right:25px;
+	color:transparent;
+	&:hover{
+		color:#777;
+		text-decoration:none;
+	}
+}
+
 html{
-  background:#fffaf5;
+  background:#fff;
 }
 
 input{
@@ -25,60 +37,88 @@ input{
 
 .taskLists{
 	overflow:hidden;
-	.taskListTitle{
-		overflow:hidden;
-		
-	}
 }
 
 .taskList{
 	float:left;
 	width:33%;
 	margin:10px;
-  #tasks-form{
+	padding:5px;
+	border:1px dashed #eee;
+	&:hover{
+		.shadow(0,5px,15px,#ddd);
+	}
+  li{
+		font-family: 'Walter Turncoat', cursive;
+    .sizeH2();
+	}
+	#tasks-form{
     width:50%;
     margin:0 auto;
     padding:10px;
     input{
-      font-family: 'Walter Turncoat', cursive;
-      .sizeH2();
       width:85%;
     }
   }
+	.taskListHeader{
+		overflow:hidden;
+		.taskListTitle,.removeTaskList{
+			float:left;
+		}
+		a.removeTaskList{
+			width:5%;
+			font-family: 'Walter Turncoat', cursive;
+			.removeLink();
+	    .sizeH2();
+		}
+		.taskListTitle{
+			width:95%;
+			text-align:center;
+			&:hover+a.removeTaskList{
+				color:#eee;
+				text-decoration:none;
+			}
+		}
+	}
   .tasks{
-    width:50%;
     margin:0 auto;
+		width:90%;
     li{
       position:relative; 
       margin:5px 0; 
     }
     input.taskText{
       font-family: 'Schoolbell', cursive;
-      width:90%;
+      width:70%;
       padding-right:40px;
       padding-left:30px;
       &.done{
         text-decoration:line-through;
         color:#777;
       }
-    }
-    input.check,a.removeTask{
-      position:absolute;
+			&:hover+a.removeTask{
+				color:#eee;
+				text-decoration:none;
+			}
     }
     input.check{
-      top:8px;
-      left:8px;
-    }
-    a.removeTask{
-      top:5px;
-      right:15px;
-      color:#ccc;
-      text-decoration:none;
-      &:hover{
+      position:absolute;
+			opacity:0.3;
+			&:hover,&:checked{
+				opacity:1;
+			}
+			&:checked+input.taskText{
+				text-decoration:line-through;
         color:#777;
-        text-decoration:none;
-      }
+			}
     }
+    input.check{
+      top:15px;
+      left:10px;
+    }
+		a.removeTask{
+			.removeLink();
+		}
   }
 }
 

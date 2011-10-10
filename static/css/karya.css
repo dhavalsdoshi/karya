@@ -1,4 +1,8 @@
 /* */
+@font-face {
+  font-family: 'Prakrta';
+  src: "fonts/prakrta/prakrta_.ttf";
+}
 html {
   background: #fff;
 }
@@ -13,7 +17,8 @@ input {
   -moz-transition: all 200ms ease;
   -o-transition: all 200ms ease;
   transition: all 200ms ease;
-  border: 1px solid transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
   padding: 5px 10px;
   background: transparent;
 }
@@ -22,18 +27,22 @@ input:hover, input:focus {
   -moz-transition: all 100ms ease;
   -o-transition: all 100ms ease;
   transition: all 100ms ease;
-  -moz-box-shadow: inset 0 0px 8px #dddddd;
-  -webkit-box-shadow: inset 0 0px 8px #dddddd;
-  box-shadow: inset 0 0px 8px #dddddd;
+  /*    .inset-shadow(inset,0,0px,8px,#ddd);*/
+
+  border: none;
+  border-bottom: 2px dashed #ddd;
   background: #fff;
-  border: 1px solid #eee;
+  /*    border:1px solid #eee;*/
+
   outline: none;
 }
 input:focus {
-  -moz-box-shadow: inset 0 0px 8px #cccccc;
-  -webkit-box-shadow: inset 0 0px 8px #cccccc;
-  box-shadow: inset 0 0px 8px #cccccc;
-  border: 1px solid #ccc;
+  /*    .inset-shadow(inset,0,0px,8px,#ccc);*/
+
+  border: none;
+  border-bottom: 2px dashed #ccc;
+  /*    border:1px solid #ccc;*/
+
 }
 .taskLists {
   overflow: hidden;
@@ -147,4 +156,25 @@ input:focus {
 }
 footer {
   text-align: center;
+}
+footer .main {
+  width: 250px;
+  margin: 0 auto;
+  padding: 0 0 20px 0;
+  overflow: hidden;
+}
+footer .main .karyaLogo, footer .main #googleCredit {
+  display: block;
+  float: left;
+}
+footer .main #googleCredit {
+  width: 100px;
+  font-size: 0.6em;
+  text-transform: uppercase;
+  line-height: 1em;
+  margin: 5px 0;
+}
+footer .main .karyaLogo {
+  font-family: Prakrta, sans-serif;
+  -webkit-box-reflect: below 1px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0.5, transparent), to(white));
 }
